@@ -10,11 +10,12 @@ routes = [[
         , [1, 4, 7, 9, 8]]
 
     , [
-        [5, 6, 7, 9]
-        , [5, 8, 7, 9]]]
+        [5, 6, 7]
+        , [5, 8, 9, 7]]]
 
 # sizes = [2448, 1224, 1112]
-sizes = [3748, 1874, 912]
+sizes = [3748, 1874, 3712]
+# sizes = [3748, 1874, 912]
 v_transfer = 200
 t_comm = 1
 
@@ -75,3 +76,5 @@ for Route, time_lable_Route, min_uk_count, size in zip(routes, time_lable_routes
                    9))]))
     print("---------------------------------------")
     print(end="\n\n")
+
+print(time_lables)
