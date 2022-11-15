@@ -65,16 +65,23 @@ for Route, time_lable_Route, min_uk_count, size in zip(routes, time_lable_routes
     t_all_block_packet = round((min_uk_count * 2 - 1) * t_comm + (min_uk_count - 1) * 2 * t_transfer_block_packet, 9)
     print(" ".join(["t block packet =", str(t_all_block_packet)]))
     print(" ".join(["t datagram = t max =", str(t_max)]))
+
+    t_virtual_call = round(t_max + t_all_block_packet + t_comm, 9)
     print(" ".join(
         ["t virtual call =", str(t_max), '+', str(t_all_block_packet), '+', ''.join([str(t_comm), "(time for resort)"]),
-         '=', str(round(t_max + t_all_block_packet + t_comm, 9))]))
+         '=', str(t_virtual_call)]))
+
     print(" ".join(
         ["t virtual channel =", str(t_comm), '+', '(',
          str(t_transfer),
-         '+', str(t_comm), ')', '*', '(', str(min_uk_count - 1), '+', str(len(Route) - 1), ')', '+', str(t_all_block_packet), '=',
+         '+', str(t_comm), ')', '*', '(', str(min_uk_count - 1), '+', str(len(Route) - 1), ')', '+',
+         str(t_all_block_packet), '=',
          str(round(t_comm + (t_comm + t_transfer) * (min_uk_count - 1 + len(Route) - 1) + t_all_block_packet,
+                   9))]))
+    print(" ".join(
+        ["t virtual channel veronica formul =", str(t_all_block_packet), '+', '(',
+         str(t_transfer), '+', str(t_comm), ')', '*', '(', '3', '+', str(len(Route) - 1), ')', '+', str(t_comm), '=',
+         str(round(t_all_block_packet + (t_comm + t_transfer) * (3 + len(Route) - 1) + t_comm,
                    9))]))
     print("---------------------------------------")
     print(end="\n\n")
-
-print(time_lables)
