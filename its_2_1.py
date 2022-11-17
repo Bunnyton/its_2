@@ -13,9 +13,8 @@ routes = [[
         [5, 6, 7]
         , [5, 8, 9, 7]]]
 
-# sizes = [2448, 1224, 1112]
 sizes = [3748, 1874, 3712]
-# sizes = [3748, 1874, 912]
+
 v_transfer = 200
 t_comm = 1
 
@@ -79,9 +78,9 @@ for Route, time_lable_Route, min_uk_count, size in zip(routes, time_lable_routes
          str(round(t_comm + (t_comm + t_transfer) * (min_uk_count - 1 + len(Route) - 1) + t_all_block_packet,
                    9))]))
     print(" ".join(
-        ["t virtual channel veronica formul =", str(t_all_block_packet), '+', '(',
+        ["t virtual channel blackboard formule =", str(t_all_block_packet), '+', '(',
          str(t_transfer), '+', str(t_comm), ')', '*', '(', '3', '+', str(len(Route) - 1), ')', '+', str(t_comm), '=',
          str(round(t_all_block_packet + (t_comm + t_transfer) * (3 + len(Route) - 1) + t_comm,
                    9))]))
     print("---------------------------------------")
-    print(end="\n\n")
+    print('\n')
